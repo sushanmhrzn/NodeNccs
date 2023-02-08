@@ -5,9 +5,9 @@ const port='3000'
 const bodyParser = require('body-parser');//need to parse the body object such as json text
 const calculationHelper=require('./calculationHelper');//Importing calculation function in the server
 
-// app.use(bodyParser.json()) ;
-// app.use(bodyParser.text()) ;
-// app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json()) ;
+app.use(bodyParser.text()) ;
+app.use(bodyParser.urlencoded({extended:false}));
 
 app.get('/profile/:start/:end', function (req, res) {
     console.log("Starting Page: ", req.params['start']);
@@ -30,24 +30,27 @@ app.get('/sum',function(req,res){
 //   console.log(sum);
 //   res.send();
 // }
-app.get('/',(req,res) => {
-  console.log(req.query['id']);
+app.get('/welcome',(req,res) => {
+  res.send("Password and username matched");
   // req.headers['content-type'];
+  // res.status(201).send("hello");
+})
+
+app.post('/json',(req,res) => {
+  res.send(req.body);
   res.status(201).send("hello");
 })
 
-// app.post('/json',(req,res) => {
-//   res.send(req.body);
-//   res.status(201).send("hello");
-// })
-
 const ab={
-  "username":"sushan"
+  "username":"sushan",
+  "password":"helloworld"
 }
+
  app.post('/login',(req,res) => {
    let a=calculationHelper.login(ab);
-   console.log(a);
-   res.status(201).send("hello");
+   console.log('hey');
+   res.redirect("http://localhost:3000/welcome");
+  //  res.status(201).send("hello");
  })
 
 //  app.get('/photo',(req,res) => {

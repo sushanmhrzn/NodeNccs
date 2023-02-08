@@ -23,17 +23,17 @@ const httpStatus = require("http-status");
      calculationHelper.login = async(request)=>{
         const isValid=await calculationHelper.loginValidation(request);//Firstly this method is called as we need to valid the user before processing
         if(isValid){
-            console.log(request.username);
+            return true;
         }
         else{
-            console.log('fail');
+            return false;
         }
         // if(!isValid){
         // return {status:httpStatus.BAD_GATEWAY, message :"Username"};
         // }
      }
      calculationHelper.loginValidation = (request)=>{
-        if(request.username=="sushan"){
+        if(request.username=="sushan" && request.password=='hellworld'){
             return true;
         }
         return false;

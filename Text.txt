@@ -1,0 +1,21 @@
+./filename
+
+const obj={
+    name:"Ram",
+    address:{
+        tempAddrr : "ktm",
+        perAdd:"Pkr"
+    }
+const add = obj.address
+const{address} = obj.
+}
+
+setTimeout(()=>{
+    console.,log("hey");
+},5000);
+async ()=>{
+
+}
+async make the functio  asynchronous
+await make the function  sychronous
+default function is sychronous function

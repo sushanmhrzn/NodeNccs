@@ -21,3 +21,17 @@ await make the function  sychronous
 default function is sychronous function
 
 username and password validate garum
+
+Point to be noted: we can't direct use express post method in the broswer so we use postman
+Express.js
+Nest.js
+Socket.io
+Sequelize
+Cytoscape.js
+PDFKit
+
+getOrderItem();
+addnewItem(getOrderItem){
+    order.push(addnewItem);
+    getOrderItem();
+}

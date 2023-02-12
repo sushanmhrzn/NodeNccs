@@ -15,7 +15,6 @@ connection.query(
 
 connection.query(
     'SELECT * FROM bikeinfo',
-    ['Page', 45],
     function(err, results) {
       console.log(results);
     }

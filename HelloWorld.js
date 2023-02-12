@@ -2,8 +2,12 @@ const express= require('express')
 const res = require('express')
 const app= express()
 const port='3000'
+const mysqlHelper=require('./mysqlHelp');
 const bodyParser = require('body-parser');//need to parse the body object such as json text
 const calculationHelper=require('./calculationHelper');//Importing calculation function in the server
+require('dotenv').config();//Used for all files
+(process.env.MYSQL_DB_USER);
+
 
 app.use(bodyParser.json()) ;
 app.use(bodyParser.text()) ;
@@ -37,13 +41,13 @@ app.get('/welcome',(req,res) => {
 })
 
 app.post('/json',(req,res) => {
-  res.send(req.body);
+  // res.send(req.body);
   res.status(201).send("hello");
 })
 
 const ab={
-  "username":"sushan",
-  "password":"helloworld"
+  "user":"osu",
+  "age":"26"
 }
 
  app.post('/login',(req,res) => {
@@ -52,12 +56,20 @@ const ab={
       if(loginValidate.blankValidate(ab)){
         res.redirect("http://localhost:3000/welcome");
       }
+      
     }    
    }else{
     res.send("Try agian");
    }
   //  res.status(201).send("hello");
  })
+ app.post('/signup',(res,req)=>{
+  console.log(typeof(ab.password));
+  let query= "INSERT INTO `table`  VALUES ('"+ab.user+"','"+ ab.age+"')";
+  mysqlHelper.query(query);
+  res.status(201).send("hello");
+ })
+
 
 //  app.get('/photo',(req,res) => {
 //    res.download('p.jpg', function(error){
@@ -70,6 +82,7 @@ const ab={
 //  })
 // })
 var server= app.listen(port,()=>{
+   mysqlHelper.init();
    var host=server.address().address
    var port=server.address().port 
    console.log(`example of listening port on ${port} and host on ${host})`)

@@ -47,9 +47,15 @@ const ab={
 }
 
  app.post('/login',(req,res) => {
-   let a=calculationHelper.login(ab);
-   console.log('hey');
-   res.redirect("http://localhost:3000/welcome");
+   if(calculationHelper.login(ab)){
+    if(loginValidate.userNameExist(ab)){
+      if(loginValidate.blankValidate(ab)){
+        res.redirect("http://localhost:3000/welcome");
+      }
+    }    
+   }else{
+    res.send("Try agian");
+   }
   //  res.status(201).send("hello");
  })
 

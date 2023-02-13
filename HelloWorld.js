@@ -8,7 +8,6 @@ const calculationHelper=require('./calculationHelper');//Importing calculation f
 require('dotenv').config();//Used for all files
 (process.env.MYSQL_DB_USER);
 
-
 app.use(bodyParser.json()) ;
 app.use(bodyParser.text()) ;
 app.use(bodyParser.urlencoded({extended:false}));

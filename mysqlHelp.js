@@ -1,4 +1,5 @@
 const mysql=require('mysql2/promise');
+const alert=require('alert');
 
 ((mysqlhelp) =>{
     let dbClient=null;
@@ -23,7 +24,9 @@ const mysql=require('mysql2/promise');
         try{
             // let res =(tranConn || dbClient).query(query.fields);
             let res=dbClient.query(query,fields);
+            alert("Data entered successfully");
             return res;
+            
         }catch(err){
             console.log(err)
         }

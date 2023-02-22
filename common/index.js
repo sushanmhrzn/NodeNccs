@@ -1,7 +1,8 @@
 (()=>{
     module.exports={
         validationHelper:require('./validation'),
-        mysqlHelp :require('./mysqlhelp')
+        passwordGenerate : require('./passwordGenerate'),       
+        mysqlHelp :require('./mysqlhelp'),
         
     }
 })()

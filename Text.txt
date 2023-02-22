@@ -47,6 +47,24 @@ NPM START PACKAGE.JSON
 
 get All user listen
 getUSerByID
-getNOrmalUSer
+getNormalUSer
 Signup-has/encrypted
 login
+
+schedule
+password hashing
+phone number check@
+automatic password generate@
+admin user table=>username password same as user
+and default
+
+{
+    "name":"Luffy",
+    "address":"Laugh Tale",
+    "password":"luffy123",
+    "email":"luffy123@gmail.com",
+    "phoneNumber":"",
+    "userTypeid":"1",
+    "status":"1"
+}
+Signup

@@ -1,5 +1,5 @@
 (()=>{
-    const mysqlHelper=require('./../../../common/index');
+    const mysqlHelper=require('../../../common/index');
 
     module.exports= async(req,res,next)=>{
         // console.log(Object.keys(req).length === 0);
@@ -10,10 +10,22 @@
             console.log(respone[0]);
         }
         if(Object.keys(req).length === 0 == false){
-            const id=req.body;
-            const sql="Select * from userType where id="+id.id+"";
-            const respone= await mysqlHelper.mysqlHelp.query(sql);
-            console.log(respone[0]);
+            if(req.body.id){
+                const id=req.body;
+                const sql="Select * from userType where id="+id.id+"";
+                const respone= await mysqlHelper.mysqlHelp.query(sql);
+                console.log(respone[0]);
+            }
+            if(req.body.name){
+                const name1=req.body;
+                const sql="Select * from userType where name='"+name1.name+"'";
+                const respone= await mysqlHelper.mysqlHelp.query(sql);
+                console.log(respone[0]);
+            }
+            // const id=req.body;
+            // const sql="Select * from userType where id="+id.id+"";
+            // const respone= await mysqlHelper.mysqlHelp.query(sql);
+            // console.log(respone[0]);
         }
         // if(!req.body){
         //     const id=req.body;

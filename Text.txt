@@ -38,3 +38,15 @@ addnewItem(getOrderItem){
 
 
 Note: One file must contain only one serve i.e listen function
+
+const  express= require('express').Router();
+
+Sequelize 
+seeders ma default value rakhne
+NPM START PACKAGE.JSON
+
+get All user listen
+getUSerByID
+getNOrmalUSer
+Signup-has/encrypted
+login

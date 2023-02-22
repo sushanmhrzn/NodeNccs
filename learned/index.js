@@ -4,6 +4,7 @@
 // test();
 
 // require("express")
+const sequlize= require('sequelize')
 const { response } = require('express');
 var express=require('express');
 var app=express();

@@ -23,12 +23,13 @@ const alert=require('alert');
     mysqlhelp.query=async(query,fields,metaData)=>{
         try{
             // let res =(tranConn || dbClient).query(query.fields);
-            let res=dbClient.query(query,fields);
-            alert("Data entered successfully");
+            let res= await dbClient.query(query,fields);
+            // alert("Data entered successfully");
+            // console.log(res);
+
             return res;
-            
         }catch(err){
             console.log(err)
         }
     }
-})(module.exports)
+})(module.exports);

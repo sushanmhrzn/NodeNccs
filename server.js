@@ -7,6 +7,7 @@ const mysqlHelp=require('./common/mysqlhelp')
 const bodyParser = require('body-parser');//need to parse the body object such as json text
 //const calculationHelper=require('./learned/calculationHelper');//Importing calculation function in the server
 // const { Router } = require('express');
+const jobCron=require('./services/job/jobEg'); 
 
 require('dotenv').config();//Used for all files
 (process.env.MYSQL_DB_USER);

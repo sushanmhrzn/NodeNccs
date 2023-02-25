@@ -70,5 +70,6 @@ and default
 Signup
 
 
-new pw=Kd2XP5fK
+luffy pw=Kd2XP5fK
 node mailer
+hi ko password=V2mH0i22

@@ -16,16 +16,21 @@
         //         retVal += charset.charAt(Math.floor(Math.random() * n));
         //     }
         //     console.log(retVal);
-        const password= await helper.passwordGenerate.auto();
-        console.log(password);
+        console.log("hi");
         const {name,address,email,phoneNumber,userTypeid,status}=req.body;
         const createdAt=new Date().getTime();
-        // console.log(new Date().getTime());
         const createdBy=null;
         const updatedAt=null;
         const updatedBy=null;
-        const sql="Insert into user(name,address,password,email,phoneNumber,userTypeid,status,createdAt,createdBy,updatedAt,updatedBy) Values('"+name+"','"+address+"','"+password+"','"+email+"','"+phoneNumber+"','"+userTypeid+"','"+status+"','"+createdAt+"','"+createdBy+"','"+updatedAt+"','"+updatedBy+"')";
-        await helper.mysqlHelp.query(sql);
+        const password= await helper.passwordGenerate.auto();
+        console.log(password);
+        if(helper.validationHelper.signUp(name,email,password)){
+            const sql="Insert into user(name,address,password,email,phoneNumber,userTypeid,status,createdAt,createdBy,updatedAt,updatedBy) Values('"+name+"','"+address+"','"+password+"','"+email+"','"+phoneNumber+"','"+userTypeid+"','"+status+"','"+createdAt+"','"+createdBy+"','"+updatedAt+"','"+updatedBy+"')";
+            await helper.mysqlHelp.query(sql);
+            res.send("Sign uped");
+        }else{
+            console.log("Not signuped");
+        }
         // console.log(h.name);
         // await helper.validationHelper.signUp(h.name,h.email,h.password);
         // if(true){
